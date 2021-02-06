@@ -76,6 +76,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
@@ -86,7 +87,8 @@ import javafx.scene.layout.HBox;
  */
 public class DialogBox extends HBox {
     @FXML
-    private Label dialog;
+    //private Label dialog;
+    private Text dialog;
     @FXML
     private ImageView displayPicture;
 
@@ -102,7 +104,12 @@ public class DialogBox extends HBox {
 
         dialog.setText(text);
         displayPicture.setImage(img);
+        //dialog.maxWidth(300.0); issue with wrapping now
+        //previously with label is issue with vertical height of the Hbox, but apparently, label does not resize acc
+        // to text len so changed to Text.
 
+        //this.setMinHeight(dialog.getHeight());
+        //System.out.println(dialog.getHeight());
         //dialog.setMaxHeight(Double.MAX_VALUE);
     }
 
@@ -124,5 +131,9 @@ public class DialogBox extends HBox {
         DialogBox db = new DialogBox(text, img);
         db.flip();
         return db;
+    }
+
+    public Text getDialog() {
+        return dialog;
     }
 }

@@ -20,13 +20,19 @@ public class MainWindow extends AnchorPane {
 
     private Duke duke;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.jpg"));
+    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.jpg"));
 
+    //i think can only init new var?
     private DialogBox introduce = DialogBox.getDukeDialog(Ui.introduce(), dukeImage);
+
     //dialogContainer.getChildren().add(introduce);
+    //why doesnt work if just put here
+
     @FXML
     public void initialize() {
+        //initialise method called after everything process gtg
+        dialogContainer.getChildren().add(introduce);
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
     }
 
@@ -42,7 +48,6 @@ public class MainWindow extends AnchorPane {
     private void handleUserInput() {
         String input = userInput.getText();
         String response = duke.getResponse(input);
-        //dialogContainer.getChildren().add(introduce);
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
                 DialogBox.getDukeDialog(response, dukeImage)

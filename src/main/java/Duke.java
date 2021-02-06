@@ -34,9 +34,6 @@ public class Duke {
     private Button sendButton;
     private Scene scene;
 
-    private Image user = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image duke = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
-
     //@Override
     /*public void start(Stage stage) {
         /*
